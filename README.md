@@ -20,6 +20,8 @@ This box comes with everything you need to start using smart contracts from a re
     npm run watch-contracts
     ```
 
+> **Note :** If it doesn't work, try to launch by hand ```truffle compile``` and then ```truffle migrate```
+
 4. Run the webpack server for front-end hot reloading. For now, smart contract changes must be manually recompiled and migrated.
     ```
     npm run start
