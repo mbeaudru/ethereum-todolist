@@ -5,9 +5,10 @@ const clean = require('gulp-clean');
 const runSequence = require('run-sequence');
 
 gulp.task('watch-contracts', () => {
-  runSequence(['migrate-contracts']);
-  return watch('contracts/*.sol', function () {
-    runSequence(['clean-build', 'migrate-contracts']);
+  runSequence(['migrate-contracts'], () => {
+    watch('contracts/*.sol', function () {
+      runSequence(['clean-build', 'migrate-contracts']);
+    });
   });
 });
 
