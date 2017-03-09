@@ -15,3 +15,7 @@ export const selectContractInstance = (contractBuild) => {
       .then(instance => res(instance));
   })
 }
+
+export const setDefaultAccount = (account) => Promise.resolve(
+  web3.eth.defaultAccount = account
+);
