@@ -1,16 +1,11 @@
 pragma solidity ^0.4.2;
 
 contract TodoList {
-  string public name;
   TodoItem[] public todoItems;
 
   struct TodoItem {
     bytes32 value;
     bool active;
-  }
-
-  function TodoList(string _name) {
-    name = _name;
   }
 
   function addTodoItem(bytes32 _value) returns (bool success) {

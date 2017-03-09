@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SimpleStorageContract from '../build/contracts/SimpleStorage.json';
+import TodoListContract from '../build/contracts/TodoList.json';
 import web3, { selectContractInstance, setDefaultAccount } from './web3';
 
 class App extends Component {
@@ -24,18 +24,9 @@ class App extends Component {
   async componentWillMount() {
     // The default account is the one the transactions & call are made from.
     // It can be overwritten with the "from" option.
-    await setDefaultAccount(web3.eth.accounts[1]);
+    await setDefaultAccount(web3.eth.accounts[0]);
 
-    const simpleStorage = await selectContractInstance(SimpleStorageContract);
-    await simpleStorage.set(500);
-
-    const storageValue = await simpleStorage.get();
-    const doubleValue = await simpleStorage.double(50);
-
-    this.setState({
-      doubleValue: doubleValue.toString(),
-      storageValue: storageValue.toString()
-    });
+    const todoList = await selectContractInstance(TodoListContract);
   }
 }
 
