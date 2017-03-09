@@ -34,6 +34,8 @@ And that's it ! Now you can run ```testrpc``` and you should see your node runni
 sudo npm install -g truffle
 ```
 
+> **Note :** ```npm install -g truffle``` on Windows.
+
 ## Instructions
 
 ### Run your ethereum node
@@ -45,6 +47,9 @@ In a terminal (or in vagrant ssh on Windows, see above), run ```testrpc```
 ### Deploy the smart contracts to the node
 
 In another terminal, run ```truffle compile``` and then ```truffle migrate```
+
+> **Note :** There is an experimental watcher that launch these commands when you save a contract.
+> It may not work but it's worth the shot : ```npm run watch-contracts```
 
 ### Setting up the project
 
@@ -64,4 +69,4 @@ You're done !
 
 * __Where can I find more documentation?__
 
-    All truffle boxes are a marriage of [Truffle](http://truffleframework.com/) and a React setup created with [create-react-app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md). Either one would be a great place to start!
+    This project has been created with [truffle-box-react](https://github.com/truffle-box/truffle-box-react/) which is a marriage of [Truffle](http://truffleframework.com/) and a React setup created with [create-react-app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md). Either one would be a great place to start!
