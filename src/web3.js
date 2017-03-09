@@ -1,5 +1,6 @@
 import Web3 from 'web3';
 import contract from 'truffle-contract';
+import _ from 'lodash';
 
 const provider = new Web3.providers.HttpProvider('http://localhost:8545');
 
@@ -19,3 +20,26 @@ export const selectContractInstance = (contractBuild) => {
 export const setDefaultAccount = (account) => Promise.resolve(
   web3.eth.defaultAccount = account
 );
+
+export const mapReponseToJSON = (contractResponse, parameters, type) => {
+  switch (type) {
+    case 'arrayOfObject': {
+      const result = [];
+      contractResponse.forEach((paramValues, paramIndex) => {
+        const paramName = parameters[paramIndex];
+        paramValues.forEach((paramValue, itemIndex) => {
+          const item = _.merge({}, _.get(result, [itemIndex], {}));
+          if (typeof paramValue === 'string') {
+            paramValue = web3.toUtf8(paramValue).trim();
+          }
+          item[paramName] = paramValue;
+          result[itemIndex] = item;
+        })
+      });
+
+      return result;
+    }
+    default:
+      return contractResponse;
+  }
+}
