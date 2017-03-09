@@ -15,4 +15,3 @@ export const selectContractInstance = (contractBuild) => {
       .then(instance => res(instance));
   })
 }
-

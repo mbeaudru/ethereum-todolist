@@ -21,22 +21,18 @@ class App extends Component {
     };
   }
 
-  componentWillMount() {
+  async componentWillMount() {
     const mainAccount = web3.eth.accounts[0];
-    let simpleStorage = {};
-    selectContractInstance(SimpleStorageContract)
-      .then(instance => {
-        simpleStorage = instance;
-        return instance;
-      })
-      .then(() => simpleStorage.set(500, {from: mainAccount}))
-      .then(() => simpleStorage.get.call(mainAccount))
-      .then(result => this.setState({ storageValue: result.toString() }));
+    const simpleStorage = await selectContractInstance(SimpleStorageContract);
+    await simpleStorage.set(500, {from: mainAccount});
 
-    selectContractInstance(SimpleStorageContract)
-      .then(i => { simpleStorage = i; return i; })
-      .then(() => simpleStorage.double(500))
-      .then(result => this.setState({ doubleValue: result.toString() }));
+    const storageValue = await simpleStorage.get.call(mainAccount);
+    const doubleValue = await simpleStorage.double(50);
+
+    this.setState({
+      doubleValue: doubleValue.toString(),
+      storageValue: storageValue.toString()
+    });
   }
 }
 
