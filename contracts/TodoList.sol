@@ -30,4 +30,16 @@ contract TodoList {
 
     return (values, actives);
   }
+
+  function deleteTodoItem(uint index) returns (bool success) {
+    if (index >= todoItems.length) return;
+
+    for (uint i = index; i < todoItems.length - 1; i++){
+        todoItems[i] = todoItems[i+1];
+    }
+
+    delete todoItems[todoItems.length - 1];
+    todoItems.length--;
+    return true;
+  }
 }
