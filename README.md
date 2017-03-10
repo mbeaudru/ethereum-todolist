@@ -55,6 +55,8 @@ In another terminal, run ```truffle compile``` and then ```truffle migrate```
 
 With your node running and the smart contracts deployed to it, run in terminal ```npm install``` then ```npm start```.
 
+> **Note :** If install fails on windows (particularly if node-gyp is the issue), run Powershell as administrator and run ```npm install -g windows-build-tools```. It will allow you to install and use native node packages.
+
 You're done !
 
 ## FAQ
