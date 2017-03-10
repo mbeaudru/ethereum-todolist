@@ -17,10 +17,6 @@ export const selectContractInstance = (contractBuild) => {
   })
 }
 
-export const setDefaultAccount = (account) => Promise.resolve(
-  web3.eth.defaultAccount = account
-);
-
 export const mapReponseToJSON = (contractResponse, parameters, type) => {
   switch (type) {
     case 'arrayOfObject': {
