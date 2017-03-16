@@ -10,25 +10,31 @@ class TodoList extends Component {
     return (
       <Container>
         <Header>
-          <H1>Ethereum TodoList</H1>
+          <H1>Ethereum todos</H1>
           <H2>Let's get started in developping blockchain-based apps</H2>
         </Header>
-        <InputText
-          value={this.state.newItem}
-          placeholder="Type in a new item"
-          onChange={e => this.setState({ newItem: e.target.value })}
-          onKeyDown={this.handleSubmit}
-        />
-        <List>
-          {this.state.todoItems.map((item, itemIndex) =>
-            <TodoItem
-              key={itemIndex}
-              onClick={() => this.deleteTodoItem(itemIndex)}
-            >
-              {item.value}
-            </TodoItem>
-          )}
-        </List>
+        <TodoListContainer>
+          <InputText
+            value={this.state.newItem}
+            placeholder="What needs to be done ?"
+            onChange={e => this.setState({ newItem: e.target.value })}
+            onKeyDown={this.handleSubmit}
+          />
+          {this.state.todoItems.length > 0 &&
+            <List>
+              {this.state.todoItems.map((item, itemIndex) =>
+                <TodoItem key={itemIndex}>
+                  <ItemLabel>{item.value}</ItemLabel>
+                  <DestroyBtn
+                    onClick={() => this.deleteTodoItem(itemIndex)}
+                  >
+                    ×
+                  </DestroyBtn>
+                </TodoItem>
+              )}
+            </List>
+          }
+        </TodoListContainer>
       </Container>
     );
   }
@@ -96,22 +102,35 @@ const Header = styled.div`
 `
 
 const H1 = styled.h1`
-  color: white;
-  font-size: 55pt;
-  margin-bottom: 0;
+  color: #ead7d7;
+  font-size: 100px;
+  margin-bottom: -20px;
 `;
 
 const H2 = styled.h2`
-  color: white;
-  font-size: 30pt;
+  color: #d2bebe;
+  font-size: 35px;
+`;
+
+const TodoListContainer = styled.section`
+  background: #fff;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 `;
 
 const InputText = styled.input`
-  padding: 15px 20px 15px 20px;
-  width: 400px;
-  border-radius: 50px;
-  border-width: 0;
-  margin-bottom: 10px;
+  padding: 16px 16px 16px 60px;
+  border: none;
+  background: rgba(0, 0, 0, 0.003);
+  box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+  width: 440px;
+
+  position: relative;
+  margin: 0;
+  font-size: 24px;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.4em;
 
   &:focus {
     outline: none;
@@ -120,38 +139,66 @@ const InputText = styled.input`
 
 const List = styled.ul`
   width: 440px;
-  list-style-type: none;
+  margin: 0;
   padding: 0;
+  list-style: none;
 `;
 
 const TodoItem = styled.li`
-  padding: 15px;
-  padding-left: 30px;
-  border-bottom: 1px solid #f3f3f3;
-  cursor: pointer;
-  background-color: white;
-
-  &:first-child {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
+  position: relative;
+  font-size: 24px;
+  border-bottom: 1px solid #ededed;
 
   &:last-child {
-    border-bottom: 0;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom: none;
   }
+`;
 
-  &:hover {
-    background-color: #f3f3f3;
-  }
+const ItemLabel = styled.label`
+  white-space: pre-line;
+  word-break: break-all;
+  padding: 15px 60px 15px 15px;
+  margin-left: 45px;
+  display: block;
+  line-height: 1.2;
+  transition: color 0.4s;
+`;
+
+const Button = styled.button`
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  appearance: none;
+  font-smoothing: antialiased;
+  outline: none;
+`;
+
+const DestroyBtn = styled(Button)`
+  position: absolute;
+  top: 0;
+  right: -50px;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  margin: auto 0;
+  font-size: 30px;
+  color: #cc9a9a;
+  margin-bottom: 11px;
+  transition: color 0.2s ease-out;
+  cursor: pointer;
 `;
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Roboto');
 
   body {
-    background-color: #3b7caf;
+    background-color: whitesmoke;
     font-family: 'Roboto', sans-serif;
   }
 `
