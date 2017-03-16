@@ -49,6 +49,7 @@ In a terminal (or in vagrant ssh on Windows, see above), run ```testrpc```
 #### Locally
 
 - [Install Ethereum on your machine](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
+- ```npm install``` because you need gulp to run the next command
 - ```npm run geth``` to initialize and run the ethereum node with geth console
 - ```personal.unlockAccount("ACCOUNT_TO_UNLOCK_ADDRESS", "pass")``` (see Note if you don't get it)
 - ```miner.start()```
