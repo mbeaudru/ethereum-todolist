@@ -64,7 +64,7 @@ In a terminal (or in vagrant ssh on Windows, see above), run ```testrpc```
 
 In another terminal, run ```truffle compile``` and then ```truffle migrate --reset```
 
-**Warning here:** You have to re-run those commands when you modify your contracts so that they are re-redeployed to the blockchain.
+**Warning here:** You have to re-run those commands when you modify your contracts so that they are re-deployed to the blockchain.
 
 > **Note :** There is an experimental watcher that launch these commands when you save a contract.
 > It may not work but it's worth the shot : ```npm run watch-contracts```
