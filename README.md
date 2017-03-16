@@ -38,6 +38,14 @@ sudo npm install -g truffle
 
 ## Instructions
 
+### Setting up the devTools and client dependencies
+
+```
+npm install
+```
+
+> **Note :** If install fails on windows (particularly if node-gyp is the issue), run Powershell as administrator and run ```npm install -g windows-build-tools```. It will allow you to install and use native node packages.
+
 ### Run your ethereum node
 
 #### With testrpc
@@ -49,7 +57,6 @@ In a terminal (or in vagrant ssh on Windows, see above), run ```testrpc```
 #### Locally
 
 - [Install Ethereum on your machine](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
-- ```npm install``` because you need gulp to run the next command
 - ```npm run geth``` to initialize and run the ethereum node with geth console
 - ```personal.unlockAccount("ACCOUNT_TO_UNLOCK_ADDRESS", "pass")``` (see Note if you don't get it)
 - ```miner.start()```
@@ -70,11 +77,9 @@ In another terminal, run ```truffle compile``` and then ```truffle migrate --res
 > **Note :** There is an experimental watcher that launch these commands when you save a contract.
 > It may not work but it's worth the shot : ```npm run watch-contracts```
 
-### Setting up the project
+### Running the client app
 
-With your node running and the smart contracts deployed to it, run in terminal ```npm install``` then ```npm start```.
-
-> **Note :** If install fails on windows (particularly if node-gyp is the issue), run Powershell as administrator and run ```npm install -g windows-build-tools```. It will allow you to install and use native node packages.
+With your node running and the smart contracts deployed to it, run in terminal ```npm start```.
 
 You're done !
 
