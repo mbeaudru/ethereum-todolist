@@ -1,1 +1,0 @@
-geth --rpc --rpcport "8545" --rpccorsdomain "*" --datadir "blockchain" --rpcapi "db,eth,net,web3" --nodiscover --networkid 1999 console

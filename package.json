@@ -63,7 +63,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "watch-contracts": "gulp watch-contracts"
+    "watch-contracts": "gulp watch-contracts",
+    "geth": "gulp geth"
   },
   "jest": {
     "collectCoverageFrom": [

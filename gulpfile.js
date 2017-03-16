@@ -25,6 +25,17 @@ gulp.task('migrate-contracts', () => {
       'truffle compile'
     ]))
     .pipe(shell([
-      'truffle migrate'
+      'truffle migrate --reset'
     ]));
 });
+
+gulp.task('geth', () => {
+  gulp
+    .src('./')
+    .pipe(shell([
+      'geth --rpc --rpcport "8545" --rpccorsdomain "*" --datadir "blockchain" --rpcapi "db,eth,net,web3" --nodiscover --networkid 1999 init blockchain/genesis.json'
+    ]))
+    .pipe(shell([
+      'geth --rpc --rpcport "8545" --rpccorsdomain "*" --datadir "blockchain" --rpcapi "db,eth,net,web3" --nodiscover --networkid 1999 console'
+    ]))
+})

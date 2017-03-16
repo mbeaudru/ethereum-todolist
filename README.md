@@ -49,18 +49,16 @@ In a terminal (or in vagrant ssh on Windows, see above), run ```testrpc```
 #### Locally
 
 - [Install Ethereum on your machine](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
+- ```npm run geth``` to initialize and run the ethereum node with geth console
+- ```personal.unlockAccount("ACCOUNT_TO_UNLOCK_ADDRESS", "pass")``` (see Note if you don't get it)
+- ```miner.start()```
 
-```
-personal.newAccount("pass")
-```
+**Note :** At least the first time, you need to run those commands to create an account to mine on
 
-```
-personal.unlockAccount("ACCOUNT_ADDRESS", "pass")
-```
+- ```personal.newAccount("pass")```
+- ```personal.unlockAccount("ACCOUNT_ADDRESS", "pass")```
 
-```
-miner.start()
-```
+**Note 2:** If you need to customize the geth parameters, check the "geth" task in gulpfile.js.
 
 ### Deploy the smart contracts to the node
 
