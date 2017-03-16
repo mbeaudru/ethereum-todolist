@@ -66,7 +66,7 @@ In another terminal, run ```truffle compile``` and then ```truffle migrate --res
 
 **Warning here:** You have to re-run those commands when you modify your contracts so that they are re-redeployed to the blockchain.
 
-> **Note 2:** There is an experimental watcher that launch these commands when you save a contract.
+> **Note :** There is an experimental watcher that launch these commands when you save a contract.
 > It may not work but it's worth the shot : ```npm run watch-contracts```
 
 ### Setting up the project
