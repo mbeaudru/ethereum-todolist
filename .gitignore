@@ -16,3 +16,5 @@ build_webpack
 npm-debug.log
 .truffle-solidity-loader
 .vagrant/**
+blockchain/geth/**
+blockchain/keystore/**

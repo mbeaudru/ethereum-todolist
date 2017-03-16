@@ -44,6 +44,24 @@ sudo npm install -g truffle
 
 In a terminal (or in vagrant ssh on Windows, see above), run ```testrpc```
 
+### With Geth
+
+#### Locally
+
+- [Install Ethereum on your machine](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
+
+```
+personal.newAccount("pass")
+```
+
+```
+personal.unlockAccount("ACCOUNT_ADDRESS", "pass")
+```
+
+```
+miner.start()
+```
+
 ### Deploy the smart contracts to the node
 
 In another terminal, run ```truffle compile``` and then ```truffle migrate```
