@@ -1,5 +1,15 @@
 # TodoList Dapp
 
+## Live demo
+
+![ethereum-todolist-demo](https://cloud.githubusercontent.com/assets/8942633/24293643/108c3a9c-1093-11e7-9cee-8f162145eb89.gif)
+
+## Goal
+
+While a TodoList app is not suited to ethereum-based backends, I originally wanted to do one to get my hands on this technology and to have a very simple app actually doing something I am familiar with as a front-end developper.
+
+The goal of this sample app is to help anyone wanting to understand what are ethereum contracts and how they be used as a distributed back-ends, with its limitations as well.
+
 ## Required dependencies
 
 ### A running node
