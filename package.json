@@ -1,5 +1,5 @@
 {
-  "name": "truffle-box-react",
+  "name": "ethereum-todolist",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {

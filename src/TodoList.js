@@ -35,6 +35,20 @@ class TodoList extends Component {
             </List>
           }
         </TodoListContainer>
+        <PendingContainer>
+          <Pending
+            active={this.state.pending}
+            activeColor="red"
+          >
+            Transaction Pending
+          </Pending>
+          <Pending
+            active={this.state.calling}
+            activeColor="#5eef8b"
+          >
+            Reading Blockchain
+          </Pending>
+        </PendingContainer>
       </Container>
     );
   }
@@ -45,7 +59,9 @@ class TodoList extends Component {
     this.state = {
       todoItems: [],
       newItem: '',
-      account: web3.eth.accounts[0]
+      account: web3.eth.accounts[0],
+      pending: false,
+      calling: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -61,27 +77,34 @@ class TodoList extends Component {
 
   async handleSubmit({ key }) {
     if (key !== 'Enter') return;
+
+    this.setState({ pending: true });
     const todoList = await selectContractInstance(TodoListContract);
     await todoList.addTodoItem(this.state.newItem, { from: this.state.account});
+
     const todoItems = await this.getTodoItems();
 
-    this.setState({ todoItems, newItem: '' });
+    this.setState({ todoItems, newItem: '', pending: false });
   }
 
   async getTodoItems() {
+    this.setState({ calling: true });
+
     const todoItemsResp = await this.todoList.getTodoItems.call();
     const todoItems = mapReponseToJSON(
       todoItemsResp, ['value', 'active'], 'arrayOfObject'
     );
 
+    this.setState({ calling: false });
     return todoItems;
   }
 
   async deleteTodoItem(position) {
+    this.setState({ pending: true });
     await this.todoList.deleteTodoItem(position, { from: this.state.account });
     const todoItems = await this.getTodoItems();
 
-    this.setState({ todoItems });
+    this.setState({ todoItems, pending: false });
   }
 }
 
@@ -192,6 +215,16 @@ const DestroyBtn = styled(Button)`
   margin-bottom: 11px;
   transition: color 0.2s ease-out;
   cursor: pointer;
+`;
+
+const PendingContainer = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+`;
+
+const Pending = styled.div`
+  color: ${props => props.active ? props.activeColor || 'red' : '#c7c7c7'};
 `;
 
 injectGlobal`
