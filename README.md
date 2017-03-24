@@ -52,9 +52,9 @@ npm install
 
 In a terminal (or in vagrant ssh on Windows, see above), run ```testrpc```
 
-### With Geth
+#### With Geth
 
-#### Locally
+##### Locally
 
 - [Install Ethereum on your machine](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
 - ```npm run geth``` to initialize and run the ethereum node with geth console
