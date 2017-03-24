@@ -11,7 +11,7 @@ class TodoList extends Component {
       <Container>
         <Header>
           <H1>Ethereum todos</H1>
-          <H2>Let's get started in developping blockchain-based apps</H2>
+          <H2>Lets get started in developping blockchain-based apps</H2>
         </Header>
         <TodoListContainer>
           <InputText
