@@ -8,7 +8,7 @@
 
 While a TodoList app is not suited to ethereum-based backends, I originally wanted to do one to get my hands on this technology and to have a very simple app actually doing something I am familiar with as a front-end developper.
 
-The goal of this sample app is to help anyone wanting to understand what are ethereum contracts and how they be used as a distributed back-ends, with its limitations as well.
+The goal of this sample app is to help anyone wanting to understand what are ethereum contracts and how they can be used as a distributed back-ends, with its limitations as well.
 
 ## Required dependencies
 
