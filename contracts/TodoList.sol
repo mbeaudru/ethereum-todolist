@@ -42,4 +42,12 @@ contract TodoList {
     todoItems.length--;
     return true;
   }
+  
+  function toggleTodoItem(uint index) returns (bool success) {
+    if (index >= todoItems.length) return;
+    
+    bool newValue = !todoItems[index].active;
+    todoItems[index].active = newValue;
+    return newValue;
+  }
 }
